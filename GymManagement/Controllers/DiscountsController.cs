@@ -70,15 +70,6 @@ namespace GymManagement.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        /*
-
-        [HttpGet("code")]
-        public IActionResult GetDiscountsByCode(string code)
-        {
-
-            var discountList = _discountsRepository.GetDiscountByCode(code);
-            return Ok(discountList);
-        }*/
 
         [HttpGet("filter")]
         public IActionResult GetDiscountsByFilter(string? filter)
