@@ -31,7 +31,6 @@ namespace GymManagement.Repositories
 
             if (existingSubscription != null)
             {
-                //Make sure Front end cannot put in a different Code TELL FRONT
                 existingSubscription.Description = updatedSubscription.Description;
                 existingSubscription.NumOfMonths = updatedSubscription.NumOfMonths;
                 existingSubscription.WeekFrequency = updatedSubscription.WeekFrequency;
@@ -44,7 +43,6 @@ namespace GymManagement.Repositories
         public List<Subscriptions> GetSubscriptions(string filter)
         {
 
-            //List of non-Deleted subscriptions
             var nonDeletedSubList = _context.Subscriptions.Where(x => x.IsDeleted == false).ToList();
             //We only iterate through the non-deleted Subscriptions
             return filter == null ? nonDeletedSubList : nonDeletedSubList.Where(x => x.NumOfMonths.ToString() == filter
