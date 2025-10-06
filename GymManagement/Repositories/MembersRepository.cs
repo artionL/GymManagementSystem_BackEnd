@@ -36,7 +36,6 @@ namespace GymManagement.Repositories
                 existingMember.FirstName = updatedMember.FirstName;
                 existingMember.LastName = updatedMember.LastName;
                 existingMember.Birthday = updatedMember.Birthday;
-                //TELL FRONT THAT YOU CANT UPDATE IDCARDNUMBER
                 existingMember.Email = updatedMember.Email;
                 existingMember.RegistrationDate = updatedMember.RegistrationDate;
                 //We don't update IsDeleted
