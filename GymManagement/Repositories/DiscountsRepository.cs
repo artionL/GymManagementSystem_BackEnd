@@ -45,17 +45,6 @@ namespace GymManagement.Repositories
             _context.SaveChanges();
         }
 
-        /*
-        public Discounts GetDiscountByCode(string code)
-        {
-            //NUK ESHTE LISTE ESHTE GET 1 ELEMENT
-            //Dont show deleted
-            return _context.Discounts.Where(x => x.isActive == true && x.Code == code).FirstOrDefault();
-
-                       
-        }
-        */
-
 
         public void DeleteDiscount(int id)
         {
@@ -76,7 +65,6 @@ namespace GymManagement.Repositories
             var nonDeletedDiscountList = _context.Discounts.Where(x => x.isActive == true).ToList();
 
             return filter.IsNullOrEmpty() ? nonDeletedDiscountList : nonDeletedDiscountList.Where(x => x.Code == filter).ToList();
-
 
 
 
