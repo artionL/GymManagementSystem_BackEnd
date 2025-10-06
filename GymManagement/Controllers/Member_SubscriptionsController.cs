@@ -74,23 +74,7 @@ namespace GymManagement.Controllers
             }
         }
 
-        /*
-        [HttpGet("GetBymemberID")]
-        public IActionResult GetMemberSubscriptionByMemberId(int id)
-        {
 
-            var memberSub = _membSubRepository.GetMember_SubscriptionsByMemberId(id);
-            return Ok(memberSub);
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult GetMemberSubscriptionsBySubscriptionId(int id)
-        {
-
-            var memberSubList = _membSubRepository.GetMember_SubscriptionsBySubId(id);
-            return Ok(memberSubList);
-        }
-        */
 
         [HttpGet("IdFilter")]
         public IActionResult GetMemberSubscriptionsByIdFilter(int IdFilter)
