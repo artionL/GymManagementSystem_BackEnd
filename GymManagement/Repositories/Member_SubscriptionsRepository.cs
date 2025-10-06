@@ -17,11 +17,8 @@ namespace GymManagement.Repositories
 
         public void CreateMember_Subscriptions(Member_Subscriptions memberSubscription)
         {
-            //Error possible
-            //Check if Member with that ID exists in Members table
             if (_context.Members.Any(x=>x.Id == memberSubscription.MembersId && x.IsDeleted == false))
             {
-                //Check if Subsctiption with that ID exists in Subscriptions table
                 if (_context.Subscriptions.Any(x => x.Id == memberSubscription.SubscriptionsId && x.IsDeleted == false))
                 {
                     //Check if there already is a Subscription for the same Member
@@ -29,8 +26,6 @@ namespace GymManagement.Repositories
 
                     
                         if (_context.Discounts.Any(x => x.Value == memberSubscription.DiscountValue && x.isActive == true && memberSubscription.DiscountValue != null)){
-                            //if there is a Discount
-                            //Calculations
                             memberSubscription.PaidPrice = memberSubscription.OriginalPrice * (double)(100 - memberSubscription.DiscountValue) / 100;
 
 
@@ -100,21 +95,7 @@ namespace GymManagement.Repositories
             }
             _context.SaveChanges();
         }
-        /*
-        public Member_Subscriptions GetMember_SubscriptionsByMemberId(int id)
-        {
-            var membSub = _context.Member_Subscriptions.FirstOrDefault(x => x.MembersId == id && x.IsDeleted == false);
-            return membSub;
 
-        }
-
-        public List<Member_Subscriptions> GetMember_SubscriptionsBySubId(int id)
-        {
-            var membSubList = _context.Member_Subscriptions.Where(x => x.SubscriptionsId == id && x.IsDeleted == false).ToList();
-            return membSubList;
-
-        }
-        */
 
 
         public void DeleteMember_Subscriptions(int id)
